@@ -80,6 +80,10 @@ img.game-logo {
       font-weight: bold;
       font-size: 24px;
 
+      &.weapon {
+        cursor: pointer;
+      }
+
       &.selected {
         background: #3d3d3d;
       }

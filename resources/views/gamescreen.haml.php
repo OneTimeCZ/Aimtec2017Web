@@ -6,11 +6,13 @@
 
 .title Build phase
 
+%script{type: "text/javascript", src: "js/game.js"}
+
 .weapons.col-xs-3
   %ul
-    %li (1) Time bomb
-    %li.selected (2) Flame
-    %li (3) Target
+    %li.weapon.time-bomb.selected{"data-id" => "1"} (1) Time bomb
+    %li.weapon.flame{"data-id" => "2"} (2) Flame
+    %li.weapon.target{"data-id" => "3"} (3) Target
 
 .grid.col-xs-6
   - for($i = 0; $i < 6; $i++)
@@ -20,7 +22,7 @@
 
 .info.col-xs-3
   %ul
-    %li Time (25 s / 30)
+    %li.clock (0 seconds / 30)
     //Mozna budicek?
 
 @stop
