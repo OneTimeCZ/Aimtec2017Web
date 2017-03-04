@@ -30,4 +30,8 @@ class GameController extends Controller
     public function gameShow() {
         return view('gamescreen');
     }
+
+    public function map() {
+
+    }
 }

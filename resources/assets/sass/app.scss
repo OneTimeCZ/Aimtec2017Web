@@ -65,6 +65,13 @@ img.game-logo {
 
 .player-name {
   cursor: pointer;
+  color: #ff3b2f;
+  font-weight: bold;
+  font-size: 18px;
+
+  &:hover {
+    color: red;
+  }
 }
 
 .weapons, .info {
@@ -75,7 +82,7 @@ img.game-logo {
     padding-left: 0;
 
     li {
-      height: 50px;
+      height: 100px;
       line-height: 50px;
       font-weight: bold;
       font-size: 24px;
@@ -91,21 +98,47 @@ img.game-logo {
   }
 }
 
-.square {
+.grid-square {
   float: left;
   padding: 5px;
   display: inline-block;
   background: #3d3d3d;
   border: 5px solid #333;
+
+  &.bomb-location {
+    background-image: url("../../../images/bomb.png");
+    background-size: contain;
+  }
+
+  &.fire-location {
+    background-image: url("../../../images/fire.png");
+    background-size: contain;
+  }
+
+  &.cactus-location {
+    background-image: url("../../../images/cactus.png");
+    background-size: contain;
+  }
+
+  img {
+    position: absolute;
+    padding: 5px;
+    max-width: 90%;
+    margin: auto;
+  }
 }
 
-.square:after {
+.grid-square:after {
   content: "";
   display: block;
   padding-bottom: 100%;
 }
 
-.square:hover {
+.grid-square:hover {
   background: gray;
   cursor: pointer;
+}
+
+h2 {
+  margin-bottom: 0;
 }
