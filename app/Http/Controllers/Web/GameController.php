@@ -40,6 +40,14 @@ class GameController extends Controller
         }
     }
 
+    public function leaderboard() {
+        return view('leaderboard');
+    }
+
+    public function howto() {
+        return view('howto');
+    }
+
     public function plan()
     {
         return response()->json([

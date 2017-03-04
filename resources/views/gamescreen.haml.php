@@ -46,7 +46,7 @@
         %h1.text-center Welcome to the game #47
         %h4.text-center
           You are facing:
-          %a.player-name testplayer1234
+          %a.player-name testplayer123
         %h4.text-center
           The game will begin shortly after both you and your enemy press "Ready"
         %button.btn.btn-lg.text-center.btn-danger#startGame{type: "button", "data-dismiss" => "modal"} READY

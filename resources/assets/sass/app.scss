@@ -233,3 +233,95 @@ p.ammo {
   20%   { transform: rotate(2deg); }
   50% { transform: rotate(0deg); }
 }
+
+#loadMore {
+  background: #3d3d3d;
+  border: 1px solid #3d3d3d;
+  color: whitesmoke;
+}
+
+#landingTitle {
+  margin-top: 75px;
+}
+
+.slogan {
+  color: whitesmoke;
+  font-family: 'Lato', sans-serif;
+  font-size: 40px;
+}
+
+.exploded {
+  background: url("../../../images/bomb2.png") #666;
+  background-size: contain;
+}
+
+.circle-row {
+  margin-top: 80px;
+
+  p {
+    margin-top: 10px;
+    font-family: 'Lato', sans-serif;
+    color: whitesmoke;
+    font-weight: bold;
+    font-size: 26px;
+  }
+
+  .circle {
+    float: left;
+
+    .inner {
+      margin: auto;
+      padding: 15px;
+      border-radius: 50%;
+      max-width: 230px;
+      background: whitesmoke;
+
+      i.fa {
+        position: absolute;
+        top: 32%;
+        left: 46%;
+        font-size: 50px;
+        color: whitesmoke;
+
+        &:hover {
+          color: whitesmoke;
+        }
+
+        &.leaderb {
+          left: 44%;
+        }
+      }
+
+      img {
+        max-width: 200px;
+        height: 200px;
+        border-radius: 50%;
+      }
+    }
+  }
+}
+
+.rule {
+  font-family: 'Lato', sans-serif;
+  font-weight: bold;
+  font-size: 24px;
+  color: whitesmoke;
+}
+
+.leaderboard {
+  margin-top: 30px;
+  font-family: 'Lato', sans-serif;
+  font-size: 28px;
+  color: whitesmoke;
+
+  tr {
+    th {
+      font-weight: bold;
+    }
+
+    td {
+      background: #3d3d3d;
+      border: 5px solid #333;
+    }
+  }
+}

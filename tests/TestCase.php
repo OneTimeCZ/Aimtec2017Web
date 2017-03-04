@@ -35,30 +35,4 @@ abstract class TestCase extends Illuminate\Foundation\Testing\TestCase
             'password' => $password
         ])->getData()->token;
     }
-
-    public function getValidGroup()
-    {
-        $user = factory(\App\Models\User::class)->create();
-        $group = factory(\App\Models\Group::class)->make();
-        $group->user()->associate($user);
-        $group->save();
-        return $group;
-    }
-
-    public function getValidMember()
-    {
-        $member = factory(\App\Models\Member::class)->make();
-        $group = factory(\App\Models\Group::class)->create();
-        $member->group()->associate($group);
-        $member->save();
-        return $member;
-    }
-
-    public function getValidTransaction()
-    {
-        $group = $this->getValidGroup();
-        $transaction = factory(\App\Models\Transaction::class)->make();
-        $transaction->group()->associate($group);
-        return $transaction;
-    }
 }

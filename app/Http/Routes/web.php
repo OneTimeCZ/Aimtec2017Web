@@ -31,3 +31,5 @@ Route::get('lobby', 'GameController@lobbyShow')->name('game.lobby.get');
 Route::get('game/plan', 'GameController@plan')->name('game.map.plan');
 Route::get('game/{id}', 'GameController@gameShow')->name('game.match.get');
 Route::post('game/map', 'GameController@map')->name('game.map.post');
+Route::get('leaderboard', 'GameController@leaderboard')->name('game.leaderboard.get');
+Route::get('how-to-play', 'GameController@howto')->name('game.howto.get');
