@@ -22,7 +22,7 @@
             %span.icon-bar
             %span.icon-bar
             %span.icon-bar
-          %a.navbar-brand#brand{:href => "/"} Epic Game
+          %a.navbar-brand#brand{:href => "/"} Home
         #navbar.navbar-collapse.collapse
           %ul.nav.navbar-nav
             @section('navigation')

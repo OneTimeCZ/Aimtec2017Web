@@ -50,6 +50,11 @@ body {
   }
 }
 
+h1 {
+  font-family: 'Lato', sans-serif;
+  font-weight: bold;
+}
+
 #brand {
   line-height: 40px;
 
@@ -89,6 +94,11 @@ img.game-logo {
 
       &.weapon {
         cursor: pointer;
+
+        p {
+          margin-bottom: 0;
+          display: block;
+        }
       }
 
       &.selected {
@@ -102,7 +112,7 @@ img.game-logo {
   float: left;
   padding: 5px;
   display: inline-block;
-  background: #3d3d3d;
+  background: #666;
   border: 5px solid #333;
 
   &.bomb-location {
@@ -134,11 +144,40 @@ img.game-logo {
   padding-bottom: 100%;
 }
 
-.grid-square:hover {
-  background: gray;
-  cursor: pointer;
+.hoverable {
+  .hover {
+    &:hover {
+      background: gray;
+      cursor: pointer;
+    }
+  }
 }
 
 h2 {
   margin-bottom: 0;
+}
+
+.mini-item {
+  float: left;
+  max-width: 70px;
+  margin-left: 15px;
+  margin-top: 15px;
+  margin-right: 8px;
+  cursor: auto;
+}
+
+p.ammo {
+  text-align: left;
+  margin-left: 50px;
+}
+
+#preGameModal {
+  .modal-dialog {
+    margin-top: 90px;
+  }
+}
+
+#startGame {
+  margin: auto;
+  display: block;
 }

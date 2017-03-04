@@ -11,20 +11,23 @@
 .weapons.col-xs-3
   %ul
     %li.weapon.time-bomb.selected{"data-id" => "1"}
-      (1) Time bomb
-      .ammo
+      %img.mini-item{"src" => "images/bomb.png"}
+      %p.text-left (1) Bomb
+      %p.ammo
     %li.weapon.flame{"data-id" => "2"}
-      (2) Flame
-      .ammo
+      %img.mini-item{"src" => "images/fire.png"}
+      %p.text-left (2) Flame
+      %p.ammo
     %li.weapon.target{"data-id" => "3"}
-      (3) Cactus
-      .ammo
+      %img.mini-item{"src" => "images/cactus.png"}
+      %p.text-left (3) Cactus
+      %p.ammo
 
-.grid.col-xs-6
+.grid.hoverable.col-xs-6
   - for($i = 0; $i < 6; $i++)
     .row
     - for($j = 0; $j < 6; $j++)
-      .grid-square.col-xs-2{"data-y" => $i, "data-x" => $j}
+      .grid-square.col-xs-2.hover{"data-y" => $i, "data-x" => $j}
 
 .info.col-xs-3
   %ul
@@ -32,3 +35,18 @@
     //Mozna budicek nebo castejsi update....?
 
 @stop
+
+.modal.fade#preGameModal{role: "dialog"}
+  .modal-dialog
+    .modal-content
+      .modal-header
+        %button{type: "button", class: "close", "data-dismiss" => "modal"} &times;
+        %h4.modal-title Epic Game
+      .modal-body
+        %h1.text-center Welcome to the game #47
+        %h4.text-center
+          You are facing:
+          %a.player-name testplayer1234
+        %h4.text-center
+          The game will begin shortly after both you and your enemy press "Ready"
+        %button.btn.btn-lg.text-center.btn-danger#startGame{type: "button", "data-dismiss" => "modal"} READY
