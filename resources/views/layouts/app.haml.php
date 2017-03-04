@@ -8,12 +8,13 @@
     %title @yield('title', 'Laravel 5')
     %link{rel: "stylesheet", type: "text/css", href: "https://fonts.googleapis.com/css?family=Lato:100"}
     %link{rel: "stylesheet", type: "text/css", href: "bundles/bundle.css"}
+    %link{rel: "stylesheet", type: "text/css", href: "bundles/main.css"}
     %link{rel: "stylesheet", type: "text/css", href: "css/app.css"}
     %script{type: "text/javascript", src: "bundles/bundle.js"}
-    %script{type: "text/javascript", src: "js/restfulizer.js"}
+    //%script{type: "text/javascript", src: "js/restfulizer.js"}
     %script{type: "text/javascript", src: "js/app.js"}
   %body
-    %nav.navbar.navbar-default.navbar-fixed-top
+    %nav.navbar.navbar-default#navb
       .container
         .navbar-header
           %button.navbar-toggle.collapsed{"aria-controls" => "navbar", "aria-expanded" => "false", "data-target" => "#navbar", "data-toggle" => "collapse", :type => "button"}
@@ -21,13 +22,13 @@
             %span.icon-bar
             %span.icon-bar
             %span.icon-bar
-          %a.navbar-brand{:href => "/"} Laravel 5
+          %a.navbar-brand#brand{:href => "/"} Epic Game
         #navbar.navbar-collapse.collapse
           %ul.nav.navbar-nav
             @section('navigation')
             - if(Auth::user())
               %li
-                %a{href: route('group.index')} #{ trans('layout.group_list') }
+                %a{href: route('game.lobby.get')} Game lobby
             @show
 
           %ul.nav.navbar-nav.navbar-right

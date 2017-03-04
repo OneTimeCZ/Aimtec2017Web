@@ -10,7 +10,8 @@ elixir(function(mix) {
     mix.coffee('app.coffee');
     mix.copy('bower_components/bootstrap/fonts', 'public/fonts');
     mix.copy('bower_components/components-font-awesome/fonts/', 'public/bundles');
+    mix.copy('bower_components/darktheme/', 'public/bundles');
     mix.browserSync({
-        proxy: "laravel.loc"
+        proxy: "game.loc"
     });
 });

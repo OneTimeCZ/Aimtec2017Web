@@ -2,7 +2,6 @@
 
 @section('content')
 
-.text-center
-  .title Laravel
+.title Epic Game
 
 @stop

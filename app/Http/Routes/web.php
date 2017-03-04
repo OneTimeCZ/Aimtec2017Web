@@ -15,10 +15,6 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-
-Route::group(['middleware' => ['auth']], function () {
-});
-
 Route::get('login', 'Auth\LoginController@showLoginForm')->name('login.get');
 Route::post('login', 'Auth\LoginController@login')->name('login.post');
 Route::delete('logout', 'Auth\LoginController@logout')->name('logout.post');
@@ -30,3 +26,5 @@ Route::get('password/reset', 'Auth\ForgotPasswordController@showLinkRequestForm'
 Route::post('password/email', 'Auth\ForgotPasswordController@sendResetLinkEmail')->name('password.email.post');
 Route::get('password/reset/{token}', 'Auth\ResetPasswordController@showResetForm')->name('password.reset.get');
 Route::post('password/reset', 'Auth\ResetPasswordController@reset')->name('password.reset.post');
+
+Route::get('lobby', 'GameController@lobbyShow')->name('game.lobby.get');
