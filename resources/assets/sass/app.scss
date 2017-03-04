@@ -125,8 +125,8 @@ img.game-logo {
     background-size: contain;
   }
 
-  &.cactus-location {
-    background-image: url("../../../images/cactus.png");
+  &.box-location {
+    background-image: url("../../../images/box.png");
     background-size: contain;
   }
 
@@ -151,6 +151,10 @@ img.game-logo {
       cursor: pointer;
     }
   }
+}
+
+.grid {
+  position: relative;
 }
 
 h2 {
@@ -324,4 +328,11 @@ p.ammo {
       border: 5px solid #333;
     }
   }
+}
+
+#runner {
+  position: absolute;
+  background: red;
+  border-radius: 50%;
+  border: 2px solid white;
 }

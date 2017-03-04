@@ -5,16 +5,29 @@ $(document).ready(function () {
     var weaponLimits = [20, 10, 10];    // amounts of each weapon at the start of the game
                                         // changes during the game
     var placedWeapons = [];
-    var roundDuration = 30;             // in seconds
+    var roundDuration = 10;             // in seconds
     var roundStartTime;                 // milliseconds
     var roundActive = false;
     var bombDelayInterval = 1200;       // how long before bomb explodes in milliseconds
     var fireDelayInterval = 4000;       // how long before fire burns out in milliseconds
-    var cactusDelayInterval = 10000;    // how long before cactus dies in milliseconds
+    var boxDelayInterval = 10000;    // how long before box dies in milliseconds
     var clockText = $("p.countdown");   // variable for keeping link to text
                                         // inside the clock on the right side of game screen
     var clock = $("img.clock");         // variable for keeping link to the clock
     var secondsSinceStart = 0;          // int seconds, used for easier clock printing
+    var runner;                         // variable to store link to the runner's avatar
+    var fakeMovementHistory = [         // used for testing "REALTIME" runner representation
+        [2.1,2.3,100],
+        [1.7,2.6,200],
+        [1.4,3.0,300],
+        [1.8,2.3,400],
+        [2.2,1.9,500],
+        [2.3,1.6,600],
+        [2.4,1.0,700],
+        [3.0,1.5,800],
+        [2.3,1.6,900],
+        [2.4,2.0,1000]
+    ];
 
     // preset number inside the clock before round starts and show pre-game screen
     clockText.html(roundDuration);
@@ -41,13 +54,36 @@ $(document).ready(function () {
         var clockUpdater = setInterval(updateClock, 1000);
         setTimeout(function () {
             roundActive = false;
+            clearInterval(clockUpdater);
             clearGrid();
+
+            // remove sidebars and position the grid accordingly
+            $(".weapons").hide();
+            $(".info").hide();
+            $(".grid").addClass("col-xs-offset-3");
+            $(".title").html("Runner's turn");
+
+            $.ajax({
+                url: '/game/map',
+                method: 'POST',
+                data: {
+                    'weapons': placedWeapons
+                },
+                headers: {
+                    'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                }
+            });
+
+            $(".grid.col-xs-6").append("<div id='runner'>runner</div>");
+            runner = $("#runner");
+            //console.log(runner);
+            setTimeout(drawRunner(fakeMovementHistory), 2000);
         }, roundDuration * 1000);
     });
 
     // choose a weapon by clicking on the weapons sidebar item
     // or by pressing the keys associated to the weapons
-    // 1 - bomb     2 - flame       3 - cactus
+    // 1 - bomb     2 - flame       3 - box
     $("li.weapon").click(function () {
         selectWeapon($(this).attr("data-id"));
     });
@@ -101,18 +137,16 @@ $(document).ready(function () {
                     fireLocation.addClass("hover");
                 }, fireDelayInterval);
             } else if (weapon === 3) {
-                var cactusLocation = $(this);
-                cactusLocation.addClass("cactus-location");
-                cactusLocation.removeClass("hover");
+                var boxLocation = $(this);
+                boxLocation.addClass("box-location");
+                boxLocation.removeClass("hover");
                 setTimeout(function () {
-                    cactusLocation.removeClass("cactus-location");
-                    cactusLocation.addClass("hover");
-                }, cactusDelayInterval);
+                    boxLocation.removeClass("box-location");
+                    boxLocation.addClass("hover");
+                }, boxDelayInterval);
             }
             weaponLimits[weapon - 1]--;
             $(".weapon[data-id='" + weapon + "'] .ammo").html(weaponLimits[weapon - 1] + " left");
-            console.log("placing a weapon");
-            console.log(x + " " + y);
             placedWeapons.push({type: weapon, x: x, y: y, time: (Date.now() - roundStartTime)});
         }
     }
@@ -128,8 +162,8 @@ $(document).ready(function () {
             $(this).removeClass("fire-location");
         });
 
-        $(".cactus-location").each(function () {
-            $(this).removeClass("cactus-location");
+        $(".box-location").each(function () {
+            $(this).removeClass("box-location");
         });
 
         clock.removeClass("shaky");
@@ -140,29 +174,23 @@ $(document).ready(function () {
     function updateClock() {
         secondsSinceStart += 1;
 
-        if (secondsSinceStart >= roundDuration) {
-            // remove sidebars and position the grid accordingly
-            $(".weapons").hide();
-            $(".info").hide();
-            $(".grid").addClass("col-xs-offset-3");
-            $(".title").html("Runner's turn");
-
-            // stop the countdown
-            clearInterval(clockUpdater);
-            console.log(placedWeapons);
-            $.ajax({
-                url: '/game/map',
-                method: 'POST',
-                data: {
-                    'weapons': placedWeapons
-                },
-                headers: {
-                    'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-                }
-            });
-            return;
-        }
-
         clockText.html(roundDuration - secondsSinceStart);
+    }
+
+    // Calculate runners position in the last preceding second and draw it for hunters to see
+    function drawRunner(data) {
+        var points = data;
+        var loop = setInterval(function() {
+            if (points.length > 0) {
+                var point = points.shift();
+                setRunnerPosition(point[0], point[1]);
+            }
+        }, 100);
+    }
+
+    // Move runners avatar in the grid
+    function setRunnerPosition(x, y) {
+        console.log("moving");
+        runner.css({top: y* 90, left: x * 90});
     }
 });

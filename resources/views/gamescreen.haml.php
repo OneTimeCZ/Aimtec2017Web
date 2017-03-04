@@ -19,8 +19,8 @@
       %p.text-left (2) Flame
       %p.ammo
     %li.weapon.target{"data-id" => "3"}
-      %img.mini-item{"src" => "images/cactus.png"}
-      %p.text-left (3) Cactus
+      %img.mini-item{"src" => "images/box.png"}
+      %p.text-left (3) Box
       %p.ammo
 
 .grid.hoverable.col-xs-6
