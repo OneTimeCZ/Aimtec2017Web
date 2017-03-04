@@ -27,11 +27,28 @@ class GameController extends Controller
         return view('lobby');
     }
 
-    public function gameShow() {
+    public function gameShow()
+    {
         return view('gamescreen');
     }
 
-    public function map() {
+    public function map(Request $request)
+    {
+        foreach ($request->all()['weapons'] as $weapon) {
+            var_dump($weapon);
+            //TODO create models
+        }
+    }
 
+    public function plan()
+    {
+        return response()->json([
+            ['x' => 2, 'y' => 2, 'type' => 'bomb', 'time' => 12],
+            ['x' => 1, 'y' => 3, 'type' => 'box', 'time' => 52],
+            ['x' => 3, 'y' => 2, 'type' => 'box', 'time' => 63],
+            ['x' => 5, 'y' => 2, 'type' => 'strike', 'time' => 90],
+            ['x' => 1, 'y' => 1, 'type' => 'bomb', 'time' => 1390],
+            ['x' => 0, 'y' => 2, 'type' => 'bomb', 'time' => 7892]
+        ]);
     }
 }

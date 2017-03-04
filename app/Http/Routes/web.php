@@ -28,5 +28,6 @@ Route::get('password/reset/{token}', 'Auth\ResetPasswordController@showResetForm
 Route::post('password/reset', 'Auth\ResetPasswordController@reset')->name('password.reset.post');
 
 Route::get('lobby', 'GameController@lobbyShow')->name('game.lobby.get');
+Route::get('game/plan', 'GameController@plan')->name('game.map.plan');
 Route::get('game/{id}', 'GameController@gameShow')->name('game.match.get');
 Route::post('game/map', 'GameController@map')->name('game.map.post');

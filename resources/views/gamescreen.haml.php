@@ -30,9 +30,9 @@
       .grid-square.col-xs-2.hover{"data-y" => $i, "data-x" => $j}
 
 .info.col-xs-3
-  %ul
-    %li.clock (0 seconds / 20)
-    //Mozna budicek nebo castejsi update....?
+  .clock-container
+    %img.clock{src: "images/clock2.png"}
+    %p.countdown 30
 
 @stop
 

@@ -1,16 +1,17 @@
 $(document).ready(function () {
     var weapon = 1;
-    var weaponLimits = [9999, 9999, 9999];
+    var weaponLimits = [20, 10, 10];
     var placedWeapons = []; //JSON in future
-    var roundDuration = 3600; //in seconds
+    var roundDuration = 30; //in seconds
     var roundStartTime;
     var roundActive = false;
     var bombDelayInterval = 1200;
     var fireDelayInterval = 4000;
     var cactusDelayInterval = 10000;
-    var clock = $("li.clock");
+    var clockText = $("p.countdown");
+    var clock = $("img.clock");
     var secondsSinceStart = 0;
-    clock.html("(0 seconds / " + roundDuration + ")");
+    clockText.html(roundDuration);
     $("#preGameModal").modal();
     $("#startGame").click(function () {
         $("li[data-id='1'] .ammo").html(weaponLimits[0] + " left");
@@ -19,6 +20,7 @@ $(document).ready(function () {
         roundActive = true;
         roundStartTime = Date.now();
         secondsSinceStart = 0;
+        clock.addClass("shaky");
         var clockUpdater = setInterval(updateClock, 1000);
         setTimeout(function () {
             roundActive = false;
@@ -97,6 +99,8 @@ $(document).ready(function () {
         $(".cactus-location").each(function () {
             $(this).removeClass("cactus-location");
         });
+
+        clock.removeClass("shaky");
     }
 
     function updateClock() {
@@ -109,9 +113,19 @@ $(document).ready(function () {
             $(".title").html("Runner's turn");
             clearInterval(clockUpdater);
             console.log(placedWeapons);
+            $.ajax({
+                url: '/game/map',
+                method: 'POST',
+                data: {
+                    'weapons': placedWeapons
+                },
+                headers: {
+                    'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                }
+            });
             return;
         }
 
-        clock.html("(" + secondsSinceStart + " seconds / " + roundDuration + ")");
+        clockText.html(roundDuration - secondsSinceStart);
     }
 });

@@ -181,3 +181,55 @@ p.ammo {
   margin: auto;
   display: block;
 }
+
+.clock {
+  max-width: 200px;
+
+  &.shaky {
+    -webkit-animation: shakeAnimation 1s infinite; /* Safari 4+ */
+    -moz-animation: shakeAnimation 1s infinite; /* Fx 5+ */
+    -o-animation: shakeAnimation 1s infinite; /* Opera 12+ */
+    animation: shakeAnimation 1s infinite; /* IE 10+, Fx 29+ */
+  }
+}
+
+.countdown {
+  margin-top: -45%;
+  font-size: 30px;
+  font-weight: bold;
+  text-align: center;
+  color: white;
+}
+
+@-webkit-keyframes shakeAnimation {
+  0%   { transform: rotate(0deg); }
+  10%   { transform: rotate(-2deg); }
+  20%   { transform: rotate(2deg); }
+  20%   { transform: rotate(-2deg); }
+  20%   { transform: rotate(2deg); }
+  50% { transform: rotate(0deg); }
+}
+@-moz-keyframes shakeAnimation {
+  0%   { transform: rotate(0deg); }
+  10%   { transform: rotate(-2deg); }
+  20%   { transform: rotate(2deg); }
+  20%   { transform: rotate(-2deg); }
+  20%   { transform: rotate(2deg); }
+  50% { transform: rotate(0deg); }
+}
+@-o-keyframes shakeAnimation {
+  0%   { transform: rotate(0deg); }
+  10%   { transform: rotate(-2deg); }
+  20%   { transform: rotate(2deg); }
+  20%   { transform: rotate(-2deg); }
+  20%   { transform: rotate(2deg); }
+  50% { transform: rotate(0deg); }
+}
+@keyframes shakeAnimation {
+  0%   { transform: rotate(0deg); }
+  10%   { transform: rotate(-2deg); }
+  20%   { transform: rotate(2deg); }
+  20%   { transform: rotate(-2deg); }
+  20%   { transform: rotate(2deg); }
+  50% { transform: rotate(0deg); }
+}
