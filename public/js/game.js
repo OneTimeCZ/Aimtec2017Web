@@ -70,8 +70,6 @@ $(document).ready(function () {
         if (roundActive && weaponLimits[weapon - 1] > 0) {
             weaponLimits[weapon]--;
             $(".weapon[data-id='" + weapon + "'] .ammo").html(weaponLimits[weapon] + " left");
-            console.log("placing a weapon");
-            console.log(x + " " + y);
             placedWeapons.push({type: weapon, x: x, y: y, time: (Date.now() - roundStartTime)});
         }
     }
@@ -86,6 +84,16 @@ $(document).ready(function () {
             $(".title").html("Runner's turn");
             clearInterval(clockUpdater);
             console.log(placedWeapons);
+            $.ajax({
+                url: '/game/map',
+                method: 'POST',
+                data: {
+                    'weapons': placedWeapons
+                },
+                headers: {
+                    'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+                }
+            });
             return;
         }
 

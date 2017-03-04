@@ -31,7 +31,10 @@ class GameController extends Controller
         return view('gamescreen');
     }
 
-    public function map() {
-
+    public function map(Request $request) {
+        foreach ($request->all()['weapons'] as $weapon) {
+            var_dump($weapon);
+            //TODO create models
+        }
     }
 }
