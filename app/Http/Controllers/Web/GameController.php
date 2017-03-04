@@ -26,4 +26,8 @@ class GameController extends Controller
     {
         return view('lobby');
     }
+
+    public function gameShow() {
+        return view('gamescreen');
+    }
 }

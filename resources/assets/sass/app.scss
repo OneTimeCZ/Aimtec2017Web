@@ -59,5 +59,49 @@ body {
 }
 
 img.game-logo {
+  padding: 10px;
   max-width: 100%;
+}
+
+.player-name {
+  cursor: pointer;
+}
+
+.weapons, .info {
+  color: whitesmoke;
+
+  ul {
+    list-style-type: none;
+    padding-left: 0;
+
+    li {
+      height: 50px;
+      line-height: 50px;
+      font-weight: bold;
+      font-size: 24px;
+
+      &.selected {
+        background: #3d3d3d;
+      }
+    }
+  }
+}
+
+.square {
+  float: left;
+  padding: 5px;
+  display: inline-block;
+  background: #3d3d3d;
+  border: 5px solid #333;
+}
+
+.square:after {
+  content: "";
+  display: block;
+  padding-bottom: 100%;
+}
+
+.square:hover {
+  background: gray;
+  cursor: pointer;
 }
