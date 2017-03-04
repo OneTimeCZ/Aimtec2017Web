@@ -4,11 +4,13 @@ namespace App\Exceptions;
 
 use Exception;
 use Illuminate\Http\Response;
-use Illuminate\Validation\ValidationException;
+//use GrahamCampbell\Exceptions\NewExceptionHandler as ExceptionHandler;
+use Illuminate\Foundation\Exceptions\Handler as ExceptionHandler;
 use Illuminate\Auth\Access\AuthorizationException;
 use Illuminate\Database\Eloquent\ModelNotFoundException;
 use Symfony\Component\HttpKernel\Exception\HttpException;
-use GrahamCampbell\Exceptions\NewExceptionHandler as ExceptionHandler;
+use Illuminate\Validation\ValidationException;
+
 use App\Traits\RestExceptionHandlerTrait;
 
 class Handler extends ExceptionHandler

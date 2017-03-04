@@ -3,7 +3,7 @@ namespace PHPSTORM_META {
 
    /**
     * PhpStorm Meta file, to provide autocomplete information for PhpStorm
-    * Generated on 2017-01-27.
+    * Generated on 2017-03-04.
     *
     * @author Barry vd. Heuvel <barryvdh@gmail.com>
     * @see https://github.com/barryvdh/laravel-ide-helper
@@ -38,6 +38,7 @@ namespace PHPSTORM_META {
             'view.engine.resolver' instanceof \Illuminate\View\Engines\EngineResolver,
             'view.finder' instanceof \Illuminate\View\FileViewFinder,
             'view' instanceof \Illuminate\View\Factory,
+            'Illuminate\Notifications\ChannelManager' instanceof \Illuminate\Notifications\ChannelManager,
             'entrust' instanceof \Zizaco\Entrust\Entrust,
             'command.entrust.migration' instanceof \Zizaco\Entrust\MigrationCommand,
             'geotools' instanceof \Toin0u\Geotools\Geotools,
@@ -64,6 +65,9 @@ namespace PHPSTORM_META {
             'command.ide-helper.models' instanceof \Barryvdh\LaravelIdeHelper\Console\ModelsCommand,
             'command.ide-helper.meta' instanceof \Barryvdh\LaravelIdeHelper\Console\MetaCommand,
             'blade.compiler' instanceof \Illuminate\View\Compilers\BladeCompiler,
+            'validation.presence' instanceof \Illuminate\Validation\DatabasePresenceVerifier,
+            'translation.loader' instanceof \Illuminate\Translation\FileLoader,
+            'translator' instanceof \Illuminate\Translation\Translator,
             'Illuminate\Broadcasting\BroadcastManager' instanceof \Illuminate\Broadcasting\BroadcastManager,
             'Illuminate\Bus\Dispatcher' instanceof \Illuminate\Bus\Dispatcher,
             'cache' instanceof \Illuminate\Cache\CacheManager,
@@ -140,9 +144,8 @@ namespace PHPSTORM_META {
             'queue.failer' instanceof \Illuminate\Queue\Failed\DatabaseFailedJobProvider,
             'auth.password' instanceof \Illuminate\Auth\Passwords\PasswordBrokerManager,
             'auth.password.broker' instanceof \Illuminate\Auth\Passwords\PasswordBroker,
-            'translation.loader' instanceof \Illuminate\Translation\FileLoader,
-            'translator' instanceof \Illuminate\Translation\Translator,
-            'validation.presence' instanceof \Illuminate\Validation\DatabasePresenceVerifier,
+            'html' instanceof \Collective\Html\HtmlBuilder,
+            'form' instanceof \Collective\Html\FormBuilder,
         ],
         \Illuminate\Contracts\Container\Container::make('') => [
             '' == '@',
@@ -173,6 +176,7 @@ namespace PHPSTORM_META {
             'view.engine.resolver' instanceof \Illuminate\View\Engines\EngineResolver,
             'view.finder' instanceof \Illuminate\View\FileViewFinder,
             'view' instanceof \Illuminate\View\Factory,
+            'Illuminate\Notifications\ChannelManager' instanceof \Illuminate\Notifications\ChannelManager,
             'entrust' instanceof \Zizaco\Entrust\Entrust,
             'command.entrust.migration' instanceof \Zizaco\Entrust\MigrationCommand,
             'geotools' instanceof \Toin0u\Geotools\Geotools,
@@ -199,6 +203,9 @@ namespace PHPSTORM_META {
             'command.ide-helper.models' instanceof \Barryvdh\LaravelIdeHelper\Console\ModelsCommand,
             'command.ide-helper.meta' instanceof \Barryvdh\LaravelIdeHelper\Console\MetaCommand,
             'blade.compiler' instanceof \Illuminate\View\Compilers\BladeCompiler,
+            'validation.presence' instanceof \Illuminate\Validation\DatabasePresenceVerifier,
+            'translation.loader' instanceof \Illuminate\Translation\FileLoader,
+            'translator' instanceof \Illuminate\Translation\Translator,
             'Illuminate\Broadcasting\BroadcastManager' instanceof \Illuminate\Broadcasting\BroadcastManager,
             'Illuminate\Bus\Dispatcher' instanceof \Illuminate\Bus\Dispatcher,
             'cache' instanceof \Illuminate\Cache\CacheManager,
@@ -275,9 +282,8 @@ namespace PHPSTORM_META {
             'queue.failer' instanceof \Illuminate\Queue\Failed\DatabaseFailedJobProvider,
             'auth.password' instanceof \Illuminate\Auth\Passwords\PasswordBrokerManager,
             'auth.password.broker' instanceof \Illuminate\Auth\Passwords\PasswordBroker,
-            'translation.loader' instanceof \Illuminate\Translation\FileLoader,
-            'translator' instanceof \Illuminate\Translation\Translator,
-            'validation.presence' instanceof \Illuminate\Validation\DatabasePresenceVerifier,
+            'html' instanceof \Collective\Html\HtmlBuilder,
+            'form' instanceof \Collective\Html\FormBuilder,
         ],
         \App::make('') => [
             '' == '@',
@@ -308,6 +314,7 @@ namespace PHPSTORM_META {
             'view.engine.resolver' instanceof \Illuminate\View\Engines\EngineResolver,
             'view.finder' instanceof \Illuminate\View\FileViewFinder,
             'view' instanceof \Illuminate\View\Factory,
+            'Illuminate\Notifications\ChannelManager' instanceof \Illuminate\Notifications\ChannelManager,
             'entrust' instanceof \Zizaco\Entrust\Entrust,
             'command.entrust.migration' instanceof \Zizaco\Entrust\MigrationCommand,
             'geotools' instanceof \Toin0u\Geotools\Geotools,
@@ -334,6 +341,9 @@ namespace PHPSTORM_META {
             'command.ide-helper.models' instanceof \Barryvdh\LaravelIdeHelper\Console\ModelsCommand,
             'command.ide-helper.meta' instanceof \Barryvdh\LaravelIdeHelper\Console\MetaCommand,
             'blade.compiler' instanceof \Illuminate\View\Compilers\BladeCompiler,
+            'validation.presence' instanceof \Illuminate\Validation\DatabasePresenceVerifier,
+            'translation.loader' instanceof \Illuminate\Translation\FileLoader,
+            'translator' instanceof \Illuminate\Translation\Translator,
             'Illuminate\Broadcasting\BroadcastManager' instanceof \Illuminate\Broadcasting\BroadcastManager,
             'Illuminate\Bus\Dispatcher' instanceof \Illuminate\Bus\Dispatcher,
             'cache' instanceof \Illuminate\Cache\CacheManager,
@@ -410,9 +420,8 @@ namespace PHPSTORM_META {
             'queue.failer' instanceof \Illuminate\Queue\Failed\DatabaseFailedJobProvider,
             'auth.password' instanceof \Illuminate\Auth\Passwords\PasswordBrokerManager,
             'auth.password.broker' instanceof \Illuminate\Auth\Passwords\PasswordBroker,
-            'translation.loader' instanceof \Illuminate\Translation\FileLoader,
-            'translator' instanceof \Illuminate\Translation\Translator,
-            'validation.presence' instanceof \Illuminate\Validation\DatabasePresenceVerifier,
+            'html' instanceof \Collective\Html\HtmlBuilder,
+            'form' instanceof \Collective\Html\FormBuilder,
         ],
         \app('') => [
             '' == '@',
@@ -443,6 +452,7 @@ namespace PHPSTORM_META {
             'view.engine.resolver' instanceof \Illuminate\View\Engines\EngineResolver,
             'view.finder' instanceof \Illuminate\View\FileViewFinder,
             'view' instanceof \Illuminate\View\Factory,
+            'Illuminate\Notifications\ChannelManager' instanceof \Illuminate\Notifications\ChannelManager,
             'entrust' instanceof \Zizaco\Entrust\Entrust,
             'command.entrust.migration' instanceof \Zizaco\Entrust\MigrationCommand,
             'geotools' instanceof \Toin0u\Geotools\Geotools,
@@ -469,6 +479,9 @@ namespace PHPSTORM_META {
             'command.ide-helper.models' instanceof \Barryvdh\LaravelIdeHelper\Console\ModelsCommand,
             'command.ide-helper.meta' instanceof \Barryvdh\LaravelIdeHelper\Console\MetaCommand,
             'blade.compiler' instanceof \Illuminate\View\Compilers\BladeCompiler,
+            'validation.presence' instanceof \Illuminate\Validation\DatabasePresenceVerifier,
+            'translation.loader' instanceof \Illuminate\Translation\FileLoader,
+            'translator' instanceof \Illuminate\Translation\Translator,
             'Illuminate\Broadcasting\BroadcastManager' instanceof \Illuminate\Broadcasting\BroadcastManager,
             'Illuminate\Bus\Dispatcher' instanceof \Illuminate\Bus\Dispatcher,
             'cache' instanceof \Illuminate\Cache\CacheManager,
@@ -545,9 +558,8 @@ namespace PHPSTORM_META {
             'queue.failer' instanceof \Illuminate\Queue\Failed\DatabaseFailedJobProvider,
             'auth.password' instanceof \Illuminate\Auth\Passwords\PasswordBrokerManager,
             'auth.password.broker' instanceof \Illuminate\Auth\Passwords\PasswordBroker,
-            'translation.loader' instanceof \Illuminate\Translation\FileLoader,
-            'translator' instanceof \Illuminate\Translation\Translator,
-            'validation.presence' instanceof \Illuminate\Validation\DatabasePresenceVerifier,
+            'html' instanceof \Collective\Html\HtmlBuilder,
+            'form' instanceof \Collective\Html\FormBuilder,
         ],
     ];
 }
