@@ -5,12 +5,12 @@ $(document).ready(function () {
     var weaponLimits = [20, 10, 10];    // amounts of each weapon at the start of the game
                                         // changes during the game
     var placedWeapons = [];
-    var roundDuration = 10;             // in seconds
+    var roundDuration = 30;             // in seconds
     var roundStartTime;                 // milliseconds
     var roundActive = false;
     var bombDelayInterval = 1200;       // how long before bomb explodes in milliseconds
-    var fireDelayInterval = 4000;       // how long before fire burns out in milliseconds
-    var boxDelayInterval = 10000;    // how long before box dies in milliseconds
+    var fireDelayInterval = 30000;      // how long before fire burns out in milliseconds
+    var boxDelayInterval = 30000;       // how long before box dies in milliseconds
     var clockText = $("p.countdown");   // variable for keeping link to text
                                         // inside the clock on the right side of game screen
     var clock = $("img.clock");         // variable for keeping link to the clock
@@ -74,10 +74,7 @@ $(document).ready(function () {
                 }
             });
 
-            $(".grid.col-xs-6").append("<div id='runner'>runner</div>");
-            runner = $("#runner");
-            //console.log(runner);
-            setTimeout(drawRunner(fakeMovementHistory), 2000);
+            $(".grid.col-xs-6").append("<h3 class='waiting'>Waiting for user input...</h3>");
         }, roundDuration * 1000);
     });
 
