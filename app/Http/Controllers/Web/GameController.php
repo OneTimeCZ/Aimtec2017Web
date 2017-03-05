@@ -33,29 +33,60 @@ class GameController extends Controller
 
     public function map(Request $request)
     {
+        $game = $this->getGame();
+        $game->gameObjects()->delete();
         foreach ($request->all()['weapons'] as $weapon) {
-            var_dump($weapon);
+            $go = new \App\Models\GameObject();
+            $go->pos_x = $weapon['x'];
+            $go->pos_y = $weapon['y'];
+            $go->time = $weapon['time'];
+            if ($weapon['type'] == 1)
+                $go->name = 'bomb';
+            if ($weapon['type'] == 2)
+                $go->name = 'fire';
+            if ($weapon['type'] == 3)
+                $go->name = 'box';
+            $game->gameObjects()->save($go);
             //TODO create models
         }
     }
 
-    public function leaderboard() {
+    public function leaderboard()
+    {
         return view('leaderboard');
     }
 
-    public function howto() {
+    public function howto()
+    {
         return view('howto');
     }
 
     public function plan()
     {
-        return response()->json([
-            ['x' => 2, 'y' => 2, 'type' => 'bomb', 'time' => 12],
-            ['x' => 1, 'y' => 3, 'type' => 'box', 'time' => 52],
-            ['x' => 3, 'y' => 2, 'type' => 'box', 'time' => 63],
-            ['x' => 5, 'y' => 2, 'type' => 'strike', 'time' => 90],
-            ['x' => 1, 'y' => 1, 'type' => 'bomb', 'time' => 1390],
-            ['x' => 0, 'y' => 2, 'type' => 'bomb', 'time' => 7892]
-        ]);
+        $game = $this->getGame();
+        $events = [];
+
+        foreach ($game->gameObjects as $object) {
+            $events []= [
+                'x' => $object->pos_x,
+                'y' => $object->pos_y,
+                'time' => $object->time,
+                'name' => $object->name
+            ];
+        }
+        return response()->json($events);
+    }
+
+    private function getGame()
+    {
+        $game = \App\Models\Game::first();
+
+        if (!$game) {
+            $game = new \App\Models\Game();
+            $game->name = "generic game";
+            $game->save();
+        }
+
+        return $game;
     }
 }
